@@ -285,8 +285,8 @@
           setEmergencySettings({
             ...parsedSettings,
             familyPhones: parsedSettings.familyPhones || [],
-            medicalPhones: parsedSettings.medicalPhones || ['112', '999'],
-            servicesPhones: parsedSettings.servicesPhones || ['997', '998']
+            medicalPhones: parsedSettings.medicalPhones || [],
+            servicesPhones: parsedSettings.servicesPhones || []
           });
         }
       }, []);
