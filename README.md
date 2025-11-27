@@ -43,7 +43,7 @@ Aplikacja mobilna ułatwiająca seniorom kontakt z rodziną i zarządzanie lekam
 ### Lokalny development:
 ```bash
 # Sklonuj repozytorium
-git clone https://github.com/twoja-nazwa/senior-easy-app.git
+git clone https://github.com/jarpat2791.github.io/senior-easy-app.git
 
 # Otwórz w przeglądarce
 open index.html
