@@ -1,49 +1,55 @@
 # Senior-Easy - Aplikacja dla Seniorów
 
-![Senior-Easy Logo](/icon-512.png)
+![Senior-Easy](icons/icon-512.png)
 
-Aplikacja mobilna ułatwiająca seniorom kontakt z rodziną i zarządzanie lekami.
+Aplikacja PWA dla seniorów ułatwiająca kontakt z rodziną i zarządzanie lekami.
+
+## 🚀 Szybkie uruchomienie
+
+### Online (GitHub Pages):
+1. Wejdź na: `https://[twoja-nazwa].github.io/senior-easy-app/`
+2. Kliknij "Zainstaluj" w ustawieniach aplikacji
+
+### Lokalnie:
+1. Pobierz pliki
+2. Otwórz `index.html` w przeglądarce
+3. Kliknij "Zainstaluj" w ustawieniach
+
+## 📱 Instalacja na urządzeniach
+
+### Android:
+1. Otwórz w Chrome
+2. Menu → "Dodaj do ekranu głównego"
+
+### iOS:
+1. Otwórz w Safari  
+2. Udostępnij → "Dodaj do ekranu głównego"
+
+### Windows/macOS:
+1. Otwórz w Chrome/Edge
+2. Kliknij ikonę instalacji w pasku adresu
 
 ## 🌟 Funkcje
 
-- 💊 **Zarządzanie lekami** - harmonogram i przypomnienia
-- 📞 **Kontakty rodzinne** - szybkie połączenia i rozmowy wideo
-- 🚨 **Przycisk awaryjny SOS** - pomoc w nagłych wypadkach
-- 📍 **Lokalne usługi** - ważne numery telefonów
-- 🔔 **Powiadomienia** - dla rodziny o przyjęciu leków
-- 📱 **PWA** - działa jak natywna aplikacja
+- 💊 Zarządzanie lekami z przypomnieniami
+- 📞 Kontakty rodzinne i rozmowy wideo
+- 🚨 Przycisk awaryjny SOS
+- 📍 Lokalne usługi
+- 🔔 Powiadomienia dla rodziny
+- 📱 Działanie offline
 
-## 🚀 Szybka instalacja
+## 🛠️ Technologie
 
-### Na komputerze:
-1. **Pobierz pliki** - kliknij "Code" → "Download ZIP"
-2. **Wypakuj folder** `senior-easy-app`
-3. **Otwórz** plik `index.html` w przeglądarce
-4. **Zainstaluj** - kliknij przycisk "Zainstaluj" w ustawieniach aplikacji
+- Progressive Web App (PWA)
+- React
+- Tailwind CSS
+- Service Workers
+- Local Storage
 
-### Na smartfonie:
-**Android:**
-1. Otwórz `index.html` w Chrome
-2. Menu (trzy kropki) → **"Dodaj do ekranu głównego"**
+## 🔒 Bezpieczeństwo
 
-**iOS:**
-1. Otwórz `index.html` w Safari  
-2. Ikona udostępniania → **"Dodaj do ekranu głównego"**
+Wszystkie dane przechowywane lokalnie. Brak połączenia z serwerami.
 
-## 🌐 Demo Online
+## 📄 Licencja
 
-[Aplikacja dostępna online przez GitHub Pages](https://jarpat2791.github.io/senior-easy/)
-
-## 📱 Instalacja z Google Play
-
-*Wkrótce dostępne w Google Play Store*
-
-## 🛠️ Dla developerów
-
-### Lokalny development:
-```bash
-# Sklonuj repozytorium
-git clone https://github.com/jarpat2791.github.io/senior-easy-app.git
-
-# Otwórz w przeglądarce
-open index.html
+MIT License
