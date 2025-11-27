@@ -512,6 +512,26 @@ const markAllNotificationsRead = () => {
   addNotification('Wszystkie powiadomienia oznaczone jako przeczytane');
 };
 
+// 1. TE 3 FUNKCJE PRZENIEŚ NA ZEWNĄTRZ (przed renderNotificationsScreen):
+const clearAllNotifications = () => {
+  if (notifications.length === 0) return;
+  
+  if (confirm(`Czy na pewno chcesz usunąć wszystkie powiadomienia (${notifications.length})?`)) {
+    setNotifications([]);
+    addNotification('Wszystkie powiadomienia zostały wyczyszczone');
+  }
+};
+
+const deleteNotification = (id) => {
+  setNotifications(prev => prev.filter(notif => notif.id !== id));
+};
+
+const markAllNotificationsRead = () => {
+  setNotifications(prev => prev.map(n => ({...n, read: true})));
+  addNotification('Wszystkie powiadomienia oznaczone jako przeczytane');
+};
+
+// 2. renderNotificationsScreen POZOSTAJE, ale BEZ tych funkcji wewnątrz:
 const renderNotificationsScreen = () => {
   return React.createElement('div', { className: 'space-y-4 md:space-y-6' },
     React.createElement('h2', { className: 'text-3xl md:text-4xl font-bold text-center mb-6 md:mb-8' }, 'Powiadomienia'),
@@ -529,14 +549,14 @@ const renderNotificationsScreen = () => {
       
       notifications.length > 0 && React.createElement('div', { className: 'grid grid-cols-1 sm:grid-cols-2 gap-2' },
         React.createElement('button', {
-          onClick: markAllNotificationsRead,
+          onClick: markAllNotificationsRead, // Teraz używa funkcji z zewnątrz
           className: 'bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-2xl font-bold flex items-center justify-center space-x-2'
         },
           React.createElement('span', null, '📖'),
           React.createElement('span', null, 'Oznacz wszystkie jako przeczytane')
         ),
         React.createElement('button', {
-          onClick: clearAllNotifications,
+          onClick: clearAllNotifications, // Teraz używa funkcji z zewnątrz
           className: 'bg-red-500 hover:bg-red-600 text-white p-3 rounded-2xl font-bold flex items-center justify-center space-x-2'
         },
           React.createElement('span', null, '🗑️'),
@@ -576,7 +596,7 @@ const renderNotificationsScreen = () => {
                 React.createElement('button', {
                   onClick: () => {
                     if (confirm('Czy na pewno chcesz usunąć to powiadomienie?')) {
-                      deleteNotification(notif.id);
+                      deleteNotification(notif.id); // Teraz używa funkcji z zewnątrz
                     }
                   },
                   className: 'bg-red-500 hover:bg-red-600 text-white p-2 rounded-full text-sm transition-colors'
