@@ -1790,7 +1790,20 @@
         )
       );
     }
-
+<script>
+  // Rejestracja Service Worker
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('./service-worker.js')
+        .then(function(registration) {
+          console.log('✅ Service Worker zarejestrowany: ', registration);
+        })
+        .catch(function(error) {
+          console.log('❌ Błąd rejestracji Service Worker: ', error);
+        });
+    });
+  }
+</script>
     // Renderowanie aplikacji
     ReactDOM.render(React.createElement(SeniorEasyApp), document.getElementById('root'));
   </script>
