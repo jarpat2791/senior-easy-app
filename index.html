@@ -1258,36 +1258,100 @@
         );
       };
 
-      const renderNotificationsScreen = () => {
-        return React.createElement('div', { className: 'space-y-4 md:space-y-6' },
-          React.createElement('h2', { className: 'text-3xl md:text-4xl font-bold text-center mb-6 md:mb-8' }, 'Powiadomienia'),
-          notifications.length === 0 ?
-            React.createElement('div', { className: 'text-center py-8' },
-              React.createElement('p', { className: 'text-xl text-gray-500' }, 'Brak powiadomień')
-            )
-          :
-            React.createElement(React.Fragment, null,
-              notifications.map(notif =>
-                React.createElement('div', {
-                  key: notif.id,
-                  className: `bg-white border-4 p-4 md:p-6 rounded-3xl shadow-xl ${notif.read ? 'border-gray-300' : 'border-yellow-400'}`
-                },
-                  React.createElement('div', { className: 'flex justify-between items-start' },
-                    React.createElement('div', { className: 'flex-1' },
-                      React.createElement('p', { className: 'text-lg md:text-xl text-gray-800' }, notif.text),
-                      React.createElement('p', { className: 'text-sm text-gray-500 mt-2' }, notif.time)
-                    ),
-                    !notif.read && React.createElement('span', { className: 'bg-yellow-400 text-white px-2 py-1 rounded text-sm' }, 'NOWE')
-                  )
+     const renderNotificationsScreen = () => {
+  const clearAllNotifications = () => {
+    if (notifications.length === 0) return;
+    
+    if (confirm(`Czy na pewno chcesz usunąć wszystkie powiadomienia (${notifications.length})?`)) {
+      setNotifications([]);
+      addNotification('Wszystkie powiadomienia zostały wyczyszczone');
+    }
+  };
+
+  const deleteNotification = (id) => {
+    setNotifications(prev => prev.filter(notif => notif.id !== id));
+  };
+
+  const markAllNotificationsRead = () => {
+    setNotifications(prev => prev.map(n => ({...n, read: true})));
+    addNotification('Wszystkie powiadomienia oznaczone jako przeczytane');
+  };
+
+  return React.createElement('div', { className: 'space-y-4 md:space-y-6' },
+    React.createElement('h2', { className: 'text-3xl md:text-4xl font-bold text-center mb-6 md:mb-8' }, 'Powiadomienia'),
+    
+    // Statystyki i przyciski zarządzania
+    React.createElement('div', { className: 'bg-blue-50 border-4 border-blue-300 p-4 rounded-3xl' },
+      React.createElement('div', { className: 'flex justify-between items-center mb-3' },
+        React.createElement('div', { className: 'text-lg font-bold text-gray-800' },
+          `Łącznie: ${notifications.length} powiadomień`
+        ),
+        React.createElement('div', { className: 'text-lg font-bold text-orange-600' },
+          `Nieprzeczytane: ${unreadNotificationsCount}`
+        )
+      ),
+      
+      notifications.length > 0 && React.createElement('div', { className: 'grid grid-cols-1 sm:grid-cols-2 gap-2' },
+        React.createElement('button', {
+          onClick: markAllNotificationsRead,
+          className: 'bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-2xl font-bold flex items-center justify-center space-x-2'
+        },
+          React.createElement('span', null, '📖'),
+          React.createElement('span', null, 'Oznacz wszystkie jako przeczytane')
+        ),
+        React.createElement('button', {
+          onClick: clearAllNotifications,
+          className: 'bg-red-500 hover:bg-red-600 text-white p-3 rounded-2xl font-bold flex items-center justify-center space-x-2'
+        },
+          React.createElement('span', null, '🗑️'),
+          React.createElement('span', null, 'Wyczyść wszystkie')
+        )
+      )
+    ),
+    
+    // Lista powiadomień
+    notifications.length === 0 ?
+      React.createElement('div', { className: 'text-center py-12' },
+        React.createElement('div', { className: 'text-6xl mb-4' }, '📭'),
+        React.createElement('p', { className: 'text-2xl text-gray-500 mb-2' }, 'Brak powiadomień'),
+        React.createElement('p', { className: 'text-lg text-gray-400' }, 'Wszystkie powiadomienia zostały wyczyszczone')
+      )
+    :
+      React.createElement('div', { className: 'space-y-4' },
+        notifications.map(notif =>
+          React.createElement('div', {
+            key: notif.id,
+            className: `bg-white border-4 p-4 md:p-6 rounded-3xl shadow-xl transition-all duration-300 ${
+              notif.read ? 'border-gray-300 opacity-75' : 'border-yellow-400'
+            }`
+          },
+            React.createElement('div', { className: 'flex justify-between items-start' },
+              React.createElement('div', { className: 'flex-1' },
+                React.createElement('p', { className: `text-lg md:text-xl ${notif.read ? 'text-gray-600' : 'text-gray-800 font-bold'}` }, notif.text),
+                React.createElement('p', { className: 'text-sm text-gray-500 mt-2 flex items-center space-x-2' },
+                  React.createElement('span', null, '🕒'),
+                  React.createElement('span', null, notif.time)
                 )
               ),
-              React.createElement('button', {
-                onClick: markAllNotificationsRead,
-                className: 'w-full bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-2xl font-bold'
-              }, 'Oznacz wszystkie jako przeczytane')
+              React.createElement('div', { className: 'flex flex-col space-y-2 ml-4' },
+                !notif.read && React.createElement('span', { 
+                  className: 'bg-yellow-400 text-white px-3 py-1 rounded-full text-sm font-bold animate-pulse'
+                }, 'NOWE'),
+                React.createElement('button', {
+                  onClick: () => {
+                    if (confirm('Czy na pewno chcesz usunąć to powiadomienie?')) {
+                      deleteNotification(notif.id);
+                    }
+                  },
+                  className: 'bg-red-500 hover:bg-red-600 text-white p-2 rounded-full text-sm transition-colors'
+                }, '🗑️')
+              )
             )
-        );
-      };
+          )
+        )
+      )
+  );
+};
 
       const renderSettingsScreen = () => {
         return React.createElement('div', { className: 'space-y-6' },
