@@ -7,7 +7,7 @@ Aplikacja PWA dla seniorów ułatwiająca kontakt z rodziną i zarządzanie leka
 ## 🚀 Szybkie uruchomienie
 
 ### Online (GitHub Pages):
-1. Wejdź na: `[https://jarpat2791.github.io/senior-easy-app]`
+1. Wejdź na: `https://jarpat2791.github.io/senior-easy-app`
 2. Kliknij "Zainstaluj" w ustawieniach aplikacji
 
 ### Lokalnie:
