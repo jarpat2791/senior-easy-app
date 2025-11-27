@@ -1,46 +1,49 @@
-# Senior-Easy
+# Senior-Easy - Aplikacja dla Seniorów
 
-Aplikacja dla seniorów ułatwiająca kontakt z rodziną i zarządzanie lekami.
+![Senior-Easy Logo](icons/icon-512.png)
 
-## 🚀 Funkcjonalności
+Aplikacja mobilna ułatwiająca seniorom kontakt z rodziną i zarządzanie lekami.
 
-- **💊 Przypomnienia o lekach** z cyklicznością i historią przyjęć
-- **📞 Kontakty rodzinne** z rozmowami wideo przez WhatsApp/Viber
-- **🚨 Przycisk awaryjny** z konfigurowalnymi ustawieniami
-- **👨‍👩‍👧‍👦 Tryb opieki rodzinnej** - powiadomienia dla bliskich
-- **📍 Lokalne usługi** - szybki dostęp do ważnych numerów
+## 🌟 Funkcje
 
-## 📱 Instalacja
+- 💊 **Zarządzanie lekami** - harmonogram i przypomnienia
+- 📞 **Kontakty rodzinne** - szybkie połączenia i rozmowy wideo
+- 🚨 **Przycisk awaryjny SOS** - pomoc w nagłych wypadkach
+- 📍 **Lokalne usługi** - ważne numery telefonów
+- 🔔 **Powiadomienia** - dla rodziny o przyjęciu leków
+- 📱 **PWA** - działa jak natywna aplikacja
 
-1. Otwórz aplikację w przeglądarce
-2. Kliknij przycisk "Zainstaluj" w ustawieniach
-3. Aplikacja zostanie dodana do ekranu głównego urządzenia
+## 🚀 Szybka instalacja
 
-## 💊 Zarządzanie lekami
+### Na komputerze:
+1. **Pobierz pliki** - kliknij "Code" → "Download ZIP"
+2. **Wypakuj folder** `senior-easy-app`
+3. **Otwórz** plik `index.html` w przeglądarce
+4. **Zainstaluj** - kliknij przycisk "Zainstaluj" w ustawieniach aplikacji
 
-- **Dni tygodnia** - ustaw w które dni przyjmować lek
-- **Historia** - śledź wszystkie przyjęcia leków
-- **Powiadomienia** - informuj rodzinę o przyjęciu leku
-- **Cykliczność** - leki pojawiają się automatycznie w odpowiednie dni
+### Na smartfonie:
+**Android:**
+1. Otwórz `index.html` w Chrome
+2. Menu (trzy kropki) → **"Dodaj do ekranu głównego"**
 
-## 🆘 Przycisk awaryjny
+**iOS:**
+1. Otwórz `index.html` w Safari  
+2. Ikona udostępniania → **"Dodaj do ekranu głównego"**
 
-- **3 tryby pomocy**: Rodzina, Medyczny, Służby
-- **Konfigurowalne** wiadomości i numery telefonów
-- **Pulsujący przycisk** zawsze dostępny
+## 🌐 Demo Online
 
-## 🌐 Wsparcie techniczne
+[Aplikacja dostępna online przez GitHub Pages](https://twoja-nazwa.github.io/senior-easy-app/)
 
-Telefon: +480 800 800
+## 📱 Instalacja z Google Play
 
-## 🔧 Technologie
+*Wkrótce dostępne w Google Play Store*
 
-- Progressive Web App (PWA)
-- React.js
-- Tailwind CSS
-- Service Worker
-- Local Storage
+## 🛠️ Dla developerów
 
-## 📄 Licencja
+### Lokalny development:
+```bash
+# Sklonuj repozytorium
+git clone https://github.com/twoja-nazwa/senior-easy-app.git
 
-MIT License
+# Otwórz w przeglądarce
+open index.html
